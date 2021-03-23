@@ -1,4 +1,5 @@
 import Item from './components/Item';
+//import Tarjeta from './components/Tarjetas';
 function App() {
     return (
       <div className="App">
