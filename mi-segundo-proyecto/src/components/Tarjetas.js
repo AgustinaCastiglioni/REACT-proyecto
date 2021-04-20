@@ -65,18 +65,18 @@ mostrarDetalle= (mostrar)=> {
                 <div class="uk-card-body info">
                 <h3 class="uk-card-title" style={{color: "blue"}}> {this.props.infoTarjetas.name.last} </h3>
                 <p>{this.props.infoTarjetas.name.first} </p>
-                <p>Email</p>
-                <p>(Fecha de nacimiento, edad)</p>
+                <p>{this.props.infoTarjetas.email}</p>
+                <p>{this.props.infoTarjetas.dob.date} , {this.props.infoTarjetas.dob.age} an</p>
                 
                 
                 <button  onClick= {(event)=>this.mostrarDetalle("block")}> VER DETALLES </button>
                 <div  style={{display: this.state.display}}>
-                    <p>Calle y Número</p>
-                    <p>Ciudad/Estado</p>
-                    <p>País</p>
-                    <p>Código postal</p>
-                    <p>Fecha de Registro</p>
-                    <p>Teléfono</p>
+                    <p>Calle y Número: </p>
+                    <p>Ciudad:  {this.props.infoTarjetas.location.city}</p>
+                    <p>País:</p>
+                    <p>Codigo Postal: {this.props.infoTarjetas.location.postcode}</p>
+                    <p>Registrado:{this.props.infoTarjetas.registered.date}</p>
+                    <p>Teléfono: {this.props.infoTarjetas.phone}</p>
                 </div>
                 <br/>
                 <button
