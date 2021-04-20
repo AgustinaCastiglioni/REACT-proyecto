@@ -1,6 +1,6 @@
 import Header from './components/Headers';
 import Tarjeta from './components/Tarjetas';
-import InfoRick from './rickandmorty.json';
+
 
 import React, {Component} from 'react';
 
@@ -8,31 +8,31 @@ class App extends Component  {
   constructor(props){
     super(props);
     this.state={
-       infoJson: InfoRick,
+       infoJson: [],
+       infoOriginal: []
       
-     
     }
 }
-//componentDidMount(){
-  //fetch('https://rickandmortyapi.com/')
- //.then(result=> result.json())
-  // .then(data=>{
-  //   this.setState({InfoJson: data.result)
-  //  } )
-  //}
+componentDidMount(){
+  fetch('https://randomuser.me/api/?results=20')
+ .then(result=> result.json())
+  .then(data=>{
+    this.setState({infoJson: data.results, infoOriginal: data.results})
+   } )
+  }
 resetTarjetas(){
   this.setState({
-    infoJson: InfoRick
+    infoJson: this.state.infoOriginal
       })
 }
-//agregarTarjeta(){
- // fetch()
-  //.then(result=> result.json())
- // .then(data=>{
-  //  this.state.InfoJson.push(data.result[0])
-  //  this.setState({InfoJson: data.result})
-  //} )
-//}
+// agregarTarjeta(){
+//  fetch()
+//   .then(result=> result.json())
+//  .then(data=>{
+//    this.state.InfoJson.push(data.result[0])
+//    this.setState({InfoJson: data.result})
+//   } )
+// }
   borrarTarjeta(id){
     console.log(id)
 let resultado= this.state.infoJson.filter(info=> info.id !== id)
@@ -57,7 +57,7 @@ infoJson: resultado
       {
         //La info del estado es la que se modifica, poreso uso this.state.infoJson
         this.state.infoJson.map((tarjetas, idx)=>{
-          return <Tarjeta onDelete={this.borrarTarjeta.bind(this)} key={tarjetas.id} infoTarjetas={tarjetas} name= {tarjetas.name} id={tarjetas.id} colorFondo='white'/>
+          return <Tarjeta onDelete={this.borrarTarjeta.bind(this)} key={tarjetas.id} infoTarjetas={tarjetas}  id={tarjetas.id} colorFondo='white'/>
         })
       }
     </div>
