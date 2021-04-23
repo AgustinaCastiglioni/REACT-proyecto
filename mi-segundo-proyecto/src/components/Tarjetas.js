@@ -22,8 +22,7 @@ class Tarjeta extends Component  {
 
     componentDidUpdate(prevProps, prevStates){
         console.log('Se actualizo la tarjeta: ' + this.props.id + ' ' + this.props.name)
-        console.log(prevProps)
-        console.log(prevStates.color + '' + this.state.color) 
+       
     }
 
     cambiarColor= (color)=> {
@@ -66,14 +65,14 @@ mostrarDetalle= (mostrar)=> {
                 <h3 class="uk-card-title" style={{color: "blue"}}> {this.props.infoTarjetas.name.last} </h3>
                 <p>{this.props.infoTarjetas.name.first} </p>
                 <p>{this.props.infoTarjetas.email}</p>
-                <p>{this.props.infoTarjetas.dob.date} , {this.props.infoTarjetas.dob.age} an</p>
+                <p>{this.props.infoTarjetas.dob.date} , {this.props.infoTarjetas.dob.age}</p>
                 
                 
                 <button  onClick= {(event)=>this.mostrarDetalle("block")}> VER DETALLES </button>
                 <div  style={{display: this.state.display}}>
-                    <p>Calle y Número: </p>
-                    <p>Ciudad:  {this.props.infoTarjetas.location.city}</p>
-                    <p>País:</p>
+                    <p>Calle y Número:  {this.props.infoTarjetas.location.street.number}  {this.props.infoTarjetas.location.street.name} </p>
+                    <p>Ciudad y Estado:  {this.props.infoTarjetas.location.city}/{this.props.infoTarjetas.location.state}</p>
+                    <p>País: {this.props.infoTarjetas.location.country}</p>
                     <p>Codigo Postal: {this.props.infoTarjetas.location.postcode}</p>
                     <p>Registrado:{this.props.infoTarjetas.registered.date}</p>
                     <p>Teléfono: {this.props.infoTarjetas.phone}</p>
