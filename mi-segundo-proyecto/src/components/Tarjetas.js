@@ -50,20 +50,20 @@ mostrarDetalle= (mostrar)=> {
     render() {
         return (
         
-        <div class="cuerpo">
+        <div className="cuerpo">
            
            
-            <div class="uk-card uk-card-body card" style={{backgroundColor: this.state.colorFondo}}
+            <div className="uk-card uk-card-body card" style={{backgroundColor: this.state.colorFondo}}
             onMouseEnter={(event)=> this.cambiarColor('lightgrey')}
                 onMouseLeave= {(event)=>this.cambiarColor(this.state.colorInicial)}
             >
        
-            <div class="uk-card uk-card-default">
-            <div class="uk-card-media-top">
+            <div className="uk-card uk-card-default">
+            <div className="uk-card-media-top">
                 <img src={this.props.infoTarjetas.picture.large} alt=""/>
                 </div>
-                <div class="uk-card-body info">
-                <h3 class="uk-card-title" style={{color: "blue"}}> {this.props.infoTarjetas.name.last} </h3>
+                <div className="uk-card-body info">
+                <h3 className="uk-card-title" style={{color: "black", fontWeight: "bold"}}> {this.props.infoTarjetas.name.last} </h3>
                 <p>{this.props.infoTarjetas.name.first} </p>
                 <p>{this.props.infoTarjetas.email}</p>
                 <p>{this.props.infoTarjetas.dob.date} , {this.props.infoTarjetas.dob.age}</p>

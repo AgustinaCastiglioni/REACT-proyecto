@@ -67,11 +67,11 @@ infoJson: resultado
     filtrarEdad(){
       var filtroedad = document.getElementById("edadFiltro").value
      let resultado= this.state.infoJson.filter(info=> info.dob.age === filtroedad)
-    
+     console.log(resultado)
     this.setState({
     infoJson: resultado
      })
-      console.log(this.state.infoJson)
+      
       }
       filtrarPais(){
         var filtropais= document.getElementById("paisFiltro").value
@@ -88,16 +88,16 @@ infoJson: resultado
 
 <div className="App">
        <Header/>
-   <div className="tarjetas">
-    <button style={{textAlign:'center'}} onClick= {(event)=> this.resetTarjetas()}>RESET CARDS</button>
+       <div className="tarjetas">
+    <button style={{textAlign:'center', margin: "5px" }} onClick= {(event)=> this.resetTarjetas()}>RESET CARDS</button>
     
-    <button style={{textAlign:'center'}} onClick= {(event)=> this.agregarTarjeta()}>ADD CARDS</button>
-    <input id='numeroTarjetas' placeholder='Ingresa el valor'/>
-       
-<div class="uk-inline">
-    <button type="button">FILTRAR</button>
+    <button onClick= {(event)=> this.agregarTarjeta()}>ADD CARDS</button>
+    <input  id='numeroTarjetas' placeholder='Ingresa el valor'/>
+       <br></br>
+<div className="uk-inline">
+    <button type="button" style={{margin: "5px"}}>FILTRAR</button>
     <div uk-dropdown="pos: right-center">
-        <ul class="uk-nav uk-dropdown-nav">
+        <ul className="uk-nav uk-dropdown-nav">
             <li><input id='nombreFiltro' placeholder='Ingresa el nombre'/> 
             <button style={{textAlign:'center'}} onClick= {(event)=> this.filtrarNombre()}>FILTRAR NOMBRE</button>
             </li>
@@ -114,7 +114,7 @@ infoJson: resultado
     </div>
 </div>
       
-       <div class="uk-flex uk-flex-between uk-flex-middle uk-flex-wrap" uk-sortable="handle: .uk-card">
+       <div className="uk-flex uk-flex-between uk-flex-middle uk-flex-wrap" uk-sortable="handle: .uk-card">
       
       {
         //La info del estado es la que se modifica, poreso uso this.state.infoJson
@@ -129,7 +129,7 @@ infoJson: resultado
 
     </div>  
     </div>
-    
+   
     </div>
   );
 }
