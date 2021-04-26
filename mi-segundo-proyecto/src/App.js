@@ -84,6 +84,18 @@ infoJson: resultado
        })
         console.log(this.state.infoJson)
         }
+        ordenarNombreAsc(){
+
+             fetch('https://randomuser.me/api/?results=20')
+             .then(result=> result.json())
+             .then(data=>{
+              let ordenarporascen= this.state.infoJson.orderBy(data,['first'],['asc'])
+             
+             this.setState({
+               infoJson: ordenarporascen})
+              } )
+        }
+
   render() {
   
   return (
@@ -96,6 +108,18 @@ infoJson: resultado
     <button onClick= {(event)=> this.agregarTarjeta()}>ADD CARDS</button>
     <input  id='numeroTarjetas' placeholder='Ingresa el valor'/>
        <br></br>
+
+<div class="uk-inline">
+    <button class="uk-button uk-button-default" type="button">ORDENAR NOMBRE</button>
+    <div uk-dropdown="pos: bottom-justify">
+        <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-active"><button onClick= {(event)=> this.ordenarNombreAsc()}>POR ASCENDENCIA</button></li>
+          
+        </ul>
+    </div>
+</div>
+   
+   
 <div className="uk-inline">
     <button type="button" style={{margin: "5px"}}>FILTRAR</button>
     <div uk-dropdown="pos: right-center">
