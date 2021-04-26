@@ -53,7 +53,7 @@ infoJson: resultado
 this.setState({
 infoJson: resultado
  })
-  console.log(this.state.infoJson)
+ 
   }
   filtrarApellido(){
     var filtroapellido = document.getElementById("apellidoFiltro").value
@@ -62,16 +62,18 @@ infoJson: resultado
   this.setState({
   infoJson: resultado
    })
-    console.log(this.state.infoJson)
+ 
     }
     filtrarEdad(){
       var filtroedad = document.getElementById("edadFiltro").value
-     let resultado= this.state.infoJson.filter(info=> info.dob.age === filtroedad)
-     console.log(resultado)
+      let resultado= this.state.infoJson.filter((info)=>{
+        let infoString= info.dob.age.toString()
+        return infoString === filtroedad})
+    
     this.setState({
     infoJson: resultado
      })
-      
+     
       }
       filtrarPais(){
         var filtropais= document.getElementById("paisFiltro").value
