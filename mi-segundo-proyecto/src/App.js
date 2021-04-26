@@ -86,37 +86,35 @@ infoJson: resultado
   
   return (
 
-    <div className="App">
+<div className="App">
        <Header/>
-       <div className="tarjetas">
-       <button style={{textAlign:'center'}} 
-       onClick= {(event)=> this.resetTarjetas()}
-       >RESET CARDS</button>
+   <div className="tarjetas">
+    <button style={{textAlign:'center'}} onClick= {(event)=> this.resetTarjetas()}>RESET CARDS</button>
     
-    <button style={{textAlign:'center'}} 
-       onClick= {(event)=> this.agregarTarjeta()}
-       >ADD CARDS</button>
-
-<button style={{textAlign:'center'}} 
-       onClick= {(event)=> this.filtrarNombre()}
-       >FILTRAR NOMBRE</button>
-       <button style={{textAlign:'center'}} 
-       onClick= {(event)=> this.filtrarApellido()}
-       >FILTRAR APELLIDO</button>
-        <button style={{textAlign:'center'}} 
-       onClick= {(event)=> this.filtrarEdad()}
-       >FILTRAR EDAD</button>
-        <button style={{textAlign:'center'}} 
-       onClick= {(event)=> this.filtrarPais()}
-       >FILTRAR PAÍS</button>
-
-       <input id='numeroTarjetas' placeholder='Ingresa el valor'/>
-       <input id='nombreFiltro' placeholder='Ingresa el nombre'/>
-       <input id='apellidoFiltro' placeholder='Ingresa el apellido'/>
-       <input id='edadFiltro' placeholder='Ingresa la edad'/>
-       <input id='paisFiltro' placeholder='Ingresa el país'/>
+    <button style={{textAlign:'center'}} onClick= {(event)=> this.agregarTarjeta()}>ADD CARDS</button>
+    <input id='numeroTarjetas' placeholder='Ingresa el valor'/>
+       
+<div class="uk-inline">
+    <button type="button">FILTRAR</button>
+    <div uk-dropdown="pos: right-center">
+        <ul class="uk-nav uk-dropdown-nav">
+            <li><input id='nombreFiltro' placeholder='Ingresa el nombre'/> 
+            <button style={{textAlign:'center'}} onClick= {(event)=> this.filtrarNombre()}>FILTRAR NOMBRE</button>
+            </li>
+            <li><input id='apellidoFiltro' placeholder='Ingresa el apellido'/>
+            <button style={{textAlign:'center'}} onClick= {(event)=> this.filtrarApellido()}>FILTRAR APELLIDO</button>
+            </li>
+            <li><input id='edadFiltro' placeholder='Ingresa la edad'/>
+            <button style={{textAlign:'center'}} onClick= {(event)=> this.filtrarEdad()}>FILTRAR EDAD</button>
+            </li>
+            <li><input id='paisFiltro' placeholder='Ingresa el país'/>
+            <button style={{textAlign:'center'}} onClick= {(event)=> this.filtrarPais()}>FILTRAR PAÍS</button>
+            </li>
+        </ul>
+    </div>
+</div>
       
-       <div class="uk-flex uk-flex-between uk-flex-middle uk-flex-wrap">
+       <div class="uk-flex uk-flex-between uk-flex-middle uk-flex-wrap" uk-sortable="handle: .uk-card">
       
       {
         //La info del estado es la que se modifica, poreso uso this.state.infoJson
@@ -124,19 +122,14 @@ infoJson: resultado
           return <Tarjeta 
           
           onDelete={this.borrarTarjeta.bind(this)} key={tarjetas.id} infoTarjetas={tarjetas} name={tarjetas.name.first} id={tarjetas.id} colorFondo='white'
-          />
+                 />
         
         })
       }
 
+    </div>  
     </div>
-    
     </div>
-    
-    </div>
-  
-
-     
   );
 }
 }

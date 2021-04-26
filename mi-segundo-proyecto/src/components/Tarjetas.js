@@ -52,6 +52,7 @@ mostrarDetalle= (mostrar)=> {
         
         <div class="cuerpo">
            
+           
             <div class="uk-card uk-card-body card" style={{backgroundColor: this.state.colorFondo}}
             onMouseEnter={(event)=> this.cambiarColor('lightgrey')}
                 onMouseLeave= {(event)=>this.cambiarColor(this.state.colorInicial)}
@@ -81,11 +82,12 @@ mostrarDetalle= (mostrar)=> {
                 <button
                 onClick= {this.props.onDelete.bind(this, this.props.id)}
                 >BORRAR</button>
-                </div>
+           </div>
             </div>
-
+           
         </div>
         </div>
+        
    
    
   
