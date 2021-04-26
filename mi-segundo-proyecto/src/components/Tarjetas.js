@@ -72,7 +72,8 @@ mostrarDetalle= (mostrar)=> {
                 <button  onClick= {(event)=>this.mostrarDetalle("block")}> VER DETALLES </button>
                 <div  style={{display: this.state.display}}>
                     <p>Calle y Número:  {this.props.infoTarjetas.location.street.number}  {this.props.infoTarjetas.location.street.name} </p>
-                    <p>Ciudad y Estado:  {this.props.infoTarjetas.location.city}/{this.props.infoTarjetas.location.state}</p>
+                    <p>Ciudad y Estado:  {this.props.infoTarjetas.location.city} <br></br>
+                    /{this.props.infoTarjetas.location.state}</p>
                     <p>País: {this.props.infoTarjetas.location.country}</p>
                     <p>Codigo Postal: {this.props.infoTarjetas.location.postcode}</p>
                     <p>Registrado:{this.props.infoTarjetas.registered.date}</p>
