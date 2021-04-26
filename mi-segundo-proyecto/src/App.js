@@ -129,6 +129,7 @@ infoJson: resultado
 
     </div>  
     </div>
+    
     </div>
   );
 }
