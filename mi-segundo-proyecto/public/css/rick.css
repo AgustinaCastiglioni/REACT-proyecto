@@ -10,7 +10,7 @@
     padding-top: 20px;
   }
   header{
-    background-color: #afc8e4 ;
+   background-color: whitesmoke;
     padding: 1px;
 
   }
@@ -51,19 +51,6 @@ button{
 
 #detallesContacto{
   display: none;
-}
-.botonFiltros{
-  margin-right: 30px;
-}
-.inputFiltros{
-  margin-right: 10px;
-  border-style: outset;
-}
-.fotoPerfil{
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  width: 50%;
 }
 .uk-card-media-top{
   text-align: center;
