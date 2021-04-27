@@ -1,3 +1,4 @@
+
 .titulo{
     text-align: center;
     align-items: center;
@@ -13,16 +14,21 @@
     padding: 1px;
 
   }
+  footer{
+    background-color: #afc8e4 ;
+    padding: 1px;
+
+  }
   .cuerpo{
     margin-bottom: 10px;
     margin-top: 10px;
   }
   .characters{
-   color: mediumblue;
+   color: black;
   }
 .info{
   text-align: center;
-  border: lightgrey;
+  border: blue;
   border-style: solid;
   margin-top: 5px;
   border-width: 1px;
@@ -35,7 +41,7 @@
   padding: 20px;
 }
 button{
-  background-color: lavender;
+  background-color: lightslategrey;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 8px;
@@ -45,4 +51,40 @@ button{
 
 #detallesContacto{
   display: none;
+}
+.botonFiltros{
+  margin-right: 30px;
+}
+.inputFiltros{
+  margin-right: 10px;
+  border-style: outset;
+}
+.fotoPerfil{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+}
+.uk-card-media-top{
+  text-align: center;
+  background-color: lavender;
+}
+img{
+ width: 180px;
+  border-radius: 16px;
+
+}
+.info{
+  background-color: silver;
+  border-radius: 10px;
+}
+.card{
+border-radius: 20px;
+
+}
+.inputFiltros{
+  margin-right: 10px;
+}
+.uk-button{
+  margin-right: 10px;
 }
