@@ -33,7 +33,7 @@ resetTarjetas(){
  .then(result=> result.json())
  .then(data=>{
   var nuevoArray= this.state.infoJson.concat(data.results)
-  console.log(nuevoArray)
+ 
  this.setState({
    infoJson: nuevoArray})
   } )
@@ -49,53 +49,92 @@ infoJson: resultado
 
  filtrarNombre(name){
   var filtronombre = document.getElementById("nombreFiltro").value
- let resultado= this.state.infoJson.filter(info=> info.name.first === filtronombre)
-
-this.setState({
-infoJson: resultado
- })
- 
-  }
-  filtrarApellido(){
-    var filtroapellido = document.getElementById("apellidoFiltro").value
-   let resultado= this.state.infoJson.filter(info=> info.name.last === filtroapellido)
   
-  this.setState({
-  infoJson: resultado
-   })
- 
-    }
-    filtrarEdad(){
-      var filtroedad = document.getElementById("edadFiltro").value
-      let resultado= this.state.infoJson.filter((info)=>{
-        let infoString= info.dob.age.toString()
-        return infoString === filtroedad})
-    
+  if(filtronombre.length !==0){
+    let resultado= this.state.infoJson.filter(info=> info.name.first === filtronombre)
     this.setState({
-    infoJson: resultado
-     })
-     
-      }
-      filtrarPais(){
-        var filtropais= document.getElementById("paisFiltro").value
-       let resultado= this.state.infoJson.filter(info=> info.location.country === filtropais)
-      
-      this.setState({
       infoJson: resultado
        })
-        console.log(this.state.infoJson)
+  }
+  else {
+    this.setState({
+      infoJson: this.state.infoOriginal
+       })
+ 
+  }
+}
+  filtrarApellido(){
+    var filtroapellido = document.getElementById("apellidoFiltro").value
+   
+  if(filtroapellido.length !==0){
+    let resultado= this.state.infoJson.filter(info=> info.name.last === filtroapellido)
+    this.setState({
+      infoJson: resultado
+       })
+  }
+  else {
+    this.setState({
+      infoJson: this.state.infoOriginal
+       })
+  }
+
+    }
+
+    filtrarEdad(){
+      var filtroedad = document.getElementById("edadFiltro").value
+     
+        if(filtroedad.length !==0){
+          let resultado= this.state.infoJson.filter((info)=>{
+            let infoString= info.dob.age.toString()
+            return infoString === filtroedad})
+          this.setState({
+            infoJson: resultado
+             })
+        }
+        else {
+          this.setState({
+            infoJson: this.state.infoOriginal
+             })
+       
+        }
+     
+      }
+
+      filtrarPais(){
+        var filtropais= document.getElementById("paisFiltro").value
+       
+       if(filtropais.length !==0){
+        let resultado= this.state.infoJson.filter(info=> info.location.country === filtropais)
+        this.setState({
+          infoJson: resultado
+           })
+      }
+      else {
+        this.setState({
+          infoJson: this.state.infoOriginal
+           })
+     
+      }
+
         }
         ordenarNombreAsc(){
 
-             fetch('https://randomuser.me/api/?results=20')
-             .then(result=> result.json())
-             .then(data=>{
-              let ordenarporascen= this.state.infoJson.orderBy(data,['first'],['asc'])
+              let ordenarporascen= this.state.infoJson.sort((a,b)=> {return a.name.first> b.name.first ? 1:-1})
              
              this.setState({
-               infoJson: ordenarporascen})
-              } )
+               infoJson: ordenarporascen
+              })
+          
         }
+        ordenarNombreDesc(){
+
+          let ordenarpordesc= this.state.infoJson.sort((a,b)=> {return a.name.first < b.name.first ? 1:-1})
+         
+         this.setState({
+           infoJson: ordenarpordesc
+          })
+       
+    }
 
   render() {
   
@@ -109,17 +148,17 @@ infoJson: resultado
     
    
 
-    <input  class="uk-button uk-button-default " id='numeroTarjetas' placeholder='Ingresa el valor'/>
+    <input  className="uk-button uk-button-default " id='numeroTarjetas' placeholder='Ingresa el valor'/>
     <button onClick= {(event)=> this.agregarTarjeta()}>ADD CARDS</button>
     
       
 
-<div class="uk-inline">
+<div className="uk-inline">
     <button class="uk-button uk-button-default" type="button">ORDENAR NOMBRE</button>
     <div uk-dropdown="pos: bottom-justify">
-        <ul class="uk-nav uk-dropdown-nav">
-            <li class="uk-active"><button onClick= {(event)=> this.ordenarNombreAsc()}>POR ASCENDENCIA</button></li>
-          
+        <ul className="uk-nav uk-dropdown-nav">
+            <li className="uk-active"><button onClick= {(event)=> this.ordenarNombreAsc()}>POR ASCENDENCIA</button></li>
+            <li className="uk-active"><button onClick= {(event)=> this.ordenarNombreDesc()}>POR DESCENDENCIA</button></li>
         </ul>
     </div>
 </div>
