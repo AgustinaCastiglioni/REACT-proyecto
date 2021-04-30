@@ -47,7 +47,7 @@ infoJson: resultado
   })
   }
 
- filtrarNombre(name){
+ filtrarNombre(){
   var filtronombre = document.getElementById("nombreFiltro").value
   
   if(filtronombre.length !==0){
@@ -65,7 +65,7 @@ infoJson: resultado
 }
   filtrarApellido(){
     var filtroapellido = document.getElementById("apellidoFiltro").value
-   
+  
   if(filtroapellido.length !==0){
     let resultado= this.state.infoJson.filter(info=> info.name.last === filtroapellido)
     this.setState({
@@ -85,11 +85,14 @@ infoJson: resultado
      
         if(filtroedad.length !==0){
           let resultado= this.state.infoJson.filter((info)=>{
+            console.log(info)
+            console.log(filtroedad)
             let infoString= info.dob.age.toString()
             return infoString === filtroedad})
           this.setState({
             infoJson: resultado
              })
+  
         }
         else {
           this.setState({
@@ -154,7 +157,7 @@ infoJson: resultado
       
 
 <div className="uk-inline">
-    <button class="uk-button uk-button-default" type="button">ORDENAR NOMBRE</button>
+    <button className="uk-button uk-button-default" type="button">ORDENAR NOMBRE</button>
     <div uk-dropdown="pos: bottom-justify">
         <ul className="uk-nav uk-dropdown-nav">
             <li className="uk-active"><button onClick= {(event)=> this.ordenarNombreAsc()}>POR ASCENDENCIA</button></li>
