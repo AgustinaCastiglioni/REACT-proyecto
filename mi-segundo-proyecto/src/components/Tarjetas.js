@@ -12,18 +12,6 @@ class Tarjeta extends Component  {
         }
     }
     
-    componentDidMount(){
-        console.log('Se creo la tarjeta: ' + this.props.id + ' ' + this.props.name)
-    }
-
-    componentWillUnmount(){
-        console.log('Se borro la tarjeta: ' + this.props.id + ' ' + this.props.name)
-    }
-
-    componentDidUpdate(prevProps, prevStates){
-        console.log('Se actualizo la tarjeta: ' + this.props.id + ' ' + this.props.name)
-       
-    }
 
     cambiarColor= (color)=> {
         if(this.state.colorFondo !== 'lightgreen'){
